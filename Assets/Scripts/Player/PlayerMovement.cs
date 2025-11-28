@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
+    [SerializeField] UnityEvent onDeath;
     Vector2 moveInput;
     float speed;
 
@@ -13,7 +15,10 @@ public class PlayerMovement : MonoBehaviour
        
         
     }
-
+    private void Update()
+    {
+        Death();
+    }
     private void FixedUpdate()
     {
         move();
@@ -27,6 +32,13 @@ public class PlayerMovement : MonoBehaviour
     {
        
         speed = spd*2f;
+    }
+    void Death()
+    {
+        if (transform.position.y < -1f)
+        {
+            onDeath?.Invoke();
+        }
     }
 
 
