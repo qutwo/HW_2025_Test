@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.22502834, y: -0, z: -0, w: 0.97435224}
-  m_LocalPosition: {x: 0, y: 2.11, z: -5.78}
+  m_LocalPosition: {x: 0, y: 2.11, z: -8.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -472,7 +472,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781285596}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &781285601
 Transform:
   m_ObjectHideFlags: 0
@@ -483,7 +483,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.51, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 330585546}
@@ -516,8 +516,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!136 &781285603
-CapsuleCollider:
+--- !u!65 &781285603
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -534,10 +534,8 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
@@ -599,6 +597,7 @@ GameObject:
   - component: {fileID: 1973704700}
   - component: {fileID: 1973704699}
   - component: {fileID: 1973704701}
+  - component: {fileID: 1973704702}
   m_Layer: 0
   m_Name: GameStateManager
   m_TagString: Untagged
@@ -684,6 +683,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   pulpitPrefab: {fileID: 8252334604025988589, guid: 0142999448b31c146acfe10dcbb2492f, type: 3}
+--- !u!114 &1973704702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973704698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575a52102d44a8e4c835d3a9860baa98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JsonReader
 --- !u!1001 &7240704516713415541
 PrefabInstance:
   m_ObjectHideFlags: 0

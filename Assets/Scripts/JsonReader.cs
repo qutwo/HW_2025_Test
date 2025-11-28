@@ -1,16 +1,37 @@
+using System.IO;
 using UnityEngine;
+
+[System.Serializable]
+class player_data
+{
+    float speed;
+}
+[System.Serializable]
+class pulpit_data
+{
+    float minPulpitDestroyTime;
+
+    float maxPulpitDestroyTime;
+
+    float PulpitSpawnTime;
+
+}
+[System.Serializable]
+class DoofusDiary
+{
+    string[] diaryEntries;
+}
 
 public class JsonReader : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        
+        JsonRead();
     }
-
-    // Update is called once per frame
-    void Update()
+    void JsonRead()
     {
-        
+        string json = File.ReadAllText("Assets/Json/doofus_diary.json");
+        player_data dd = JsonUtility.FromJson<player_data>(json);
+        print(dd);
     }
 }

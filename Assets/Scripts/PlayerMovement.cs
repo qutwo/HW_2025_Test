@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void move()
     {
-        rb.linearVelocity = 3f * new Vector3(moveInput.x, rb.linearVelocity.y, moveInput.y);
+        rb.linearVelocity = 10f * new Vector3(moveInput.x, rb.linearVelocity.y, moveInput.y);
     }
 
    

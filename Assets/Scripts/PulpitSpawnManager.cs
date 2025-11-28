@@ -14,7 +14,7 @@ public class PulpitSpawnManager : MonoBehaviour
     [SerializeField] GameObject pulpitPrefab;
     void Start()
     {
-        randomOffsets =new Vector2[]{ new Vector2(4.5f, 0f), new Vector2(0f, 4.5f), new Vector2(0f, -4.5f), new Vector2(-4.5f, 0)}
+        randomOffsets =new Vector2[]{ new Vector2(9f, 0f), new Vector2(0f, 9f), new Vector2(0f, -9f), new Vector2(-9f, 0)}
                           
         ;
         StartCoroutine(SpawnPlatfrom());
@@ -23,13 +23,14 @@ public class PulpitSpawnManager : MonoBehaviour
      IEnumerator SpawnPlatfrom()
      {
        while (true)
-        {
+       {
 
             int randomVal = Random.Range(0, 4);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(5);
             spawnPos += randomOffsets[randomVal];
+            Debug.Log("Spawning pulpit at: " + spawnPos);
             Instantiate(pulpitPrefab, new Vector3(spawnPos.x, 0,spawnPos.y), Quaternion.identity);
-        }
+       }
 
     }
 }
