@@ -32,10 +32,8 @@ public class PulpitScript : MonoBehaviour
 
     void StartTickingAnimation()
     {
-       
-        tickingTween = pulpitText.transform.DOScale(1.2f, 0.1f)
-            .SetEase(Ease.InOutSine)
-            .SetLoops(-1, LoopType.Yoyo);
+
+        tickingTween = pulpitText.transform.DOScale(1.2f, 0.1f).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
     }
 
     IEnumerator DestroyPulpitAfterTime(float time)
