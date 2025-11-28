@@ -1,33 +1,47 @@
 
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 
 public class PulpitScript : MonoBehaviour
 {
-    float destroyTimeMin;
-    float destroyTimeMax;
-    private void Start()
+    [SerializeField]TextMeshProUGUI pulpitText;
+    [SerializeField]GameObject pulpitUI;
+    
+
+    public void spawn(Vector3 spawnPos,float destroytime)
     {
-        StartCoroutine(DestroyPulpitAfterTime(destroyTimeMin,destroyTimeMax));
+        transform.position = spawnPos;
+        pulpitUI.SetActive(true);
+        GetComponent<MeshRenderer>().enabled = true;
+        GetComponent<BoxCollider>().enabled = true;
+        StartCoroutine(DestroyPulpitAfterTime(destroytime));
+        StartCoroutine(Countdown(destroytime));
     }
-    IEnumerator DestroyPulpitAfterTime(float timeMin,float timeMax)
+    IEnumerator DestroyPulpitAfterTime(float time)
     {
-        float time = Random.Range(timeMin, timeMax);
         yield return new WaitForSeconds(time);
-        Destroy(gameObject);
+        pulpitUI.SetActive(false);
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
+    }
+    IEnumerator Countdown(float time)
+    {
+        while (true)
+        {
+            pulpitText.text = time.ToString("F1");
+            yield return null;
+            time -= Time.deltaTime;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        
     }
 
-    public float DestroyTimeMin
-    {
-       
-        set { destroyTimeMin = value; }
-    }
-    public float DestroyTimeMax
-    {
-       
-        set { destroyTimeMax = value; }
-    }
+
+
 
 
 }
